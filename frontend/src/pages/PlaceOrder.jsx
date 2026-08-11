@@ -5,7 +5,6 @@ import Title from "../components/Title.jsx";
 import { ShopContext } from "../context/ShopContext.jsx";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { currency } from "../../../admin/src/App.jsx";
 
 const PlaceOrder = () => {
     const [method, setMethod] = useState("cod");
