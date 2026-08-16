@@ -33,7 +33,6 @@ const Orders = () => {
                 setOrderData(allOrdersItem.reverse());
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.message);
         }
     };
@@ -90,7 +89,10 @@ const Orders = () => {
                                     {item.status}
                                 </p>
                             </div>
-                            <button onClick={loadOrderData} className="border px-4 py-2 text-sm font-medium rounded-sm cursor-pointer">
+                            <button
+                                onClick={loadOrderData}
+                                className="border px-4 py-2 text-sm font-medium rounded-sm cursor-pointer"
+                            >
                                 Track Order
                             </button>
                         </div>

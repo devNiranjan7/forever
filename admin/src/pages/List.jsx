@@ -4,7 +4,7 @@ import { useState } from "react";
 import { backendUrl, currency } from "../App.jsx";
 import { toast } from "react-toastify";
 
-const List = ({token }) => {
+const List = ({ token }) => {
     const [list, setList] = useState([]);
     const fetchList = async () => {
         try {
@@ -15,24 +15,26 @@ const List = ({token }) => {
                 toast.error(response.data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.message);
         }
     };
     const removeProduct = async (id) => {
         try {
-            const response = await axios.post(backendUrl+"/api/product/remove",{id},{headers:{token}});
-            if(response.data.success){
+            const response = await axios.post(
+                backendUrl + "/api/product/remove",
+                { id },
+                { headers: { token } },
+            );
+            if (response.data.success) {
                 toast.success(response.data.message);
-                await fetchList()
-            }else{
-                toast.error(response.data.message)
+                await fetchList();
+            } else {
+                toast.error(response.data.message);
             }
         } catch (error) {
-            console.log(error);
-            toast.error(error.message)
+            toast.error(error.message);
         }
-    }
+    };
     useEffect(() => {
         fetchList();
     }, []);
@@ -59,7 +61,10 @@ const List = ({token }) => {
                             {currency}
                             {item.price}
                         </p>
-                        <p onClick={()=>removeProduct(item._id )} className="text-right md:text-center text-lg cursor-pointer">
+                        <p
+                            onClick={() => removeProduct(item._id)}
+                            className="text-right md:text-center text-lg cursor-pointer"
+                        >
                             X
                         </p>
                     </div>
