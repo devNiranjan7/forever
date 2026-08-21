@@ -59,12 +59,14 @@ const Navbar = () => {
                     alt=""
                     onClick={() => setShowSearch(true)}
                 />
-                <a
-                    href={import.meta.env.VITE_ADMIN_URL}
-                    className="hidden sm:block px-3 py-1.5 text-xs font-medium text-gray-700 bg-white/40 backdrop-blur-md border border-white/60 rounded-full shadow-sm hover:bg-white/70 hover:shadow-md transition-all duration-300"
-                >
-                    ADMIN
-                </a>
+                {!token && (
+                    <a
+                        href={import.meta.env.VITE_ADMIN_URL}
+                        className="hidden sm:block px-3 py-1.5 text-xs font-medium text-gray-700 bg-white/40 backdrop-blur-md border border-white/60 rounded-full shadow-sm hover:bg-white/70 hover:shadow-md transition-all duration-300"
+                    >
+                        ADMIN
+                    </a>
+                )}
                 <div className="group relative">
                     <img
                         onClick={() => (token ? null : navigate("/login"))}
