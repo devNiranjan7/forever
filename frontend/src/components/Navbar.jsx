@@ -157,13 +157,15 @@ const Navbar = () => {
                     >
                         CONTACT{" "}
                     </NavLink>
-                    <a
-                        href={import.meta.env.VITE_ADMIN_URL}
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border border-gray-200"
-                    >
-                        ADMIN
-                    </a>
+                    {!token && (
+                        <a
+                            href={import.meta.env.VITE_ADMIN_URL}
+                            onClick={() => setVisible(false)}
+                            className="py-2 pl-6 border border-gray-200"
+                        >
+                            ADMIN
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
